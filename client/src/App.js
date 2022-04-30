@@ -2,9 +2,9 @@ import './App.css';
 import Post from './Components/Posts/Posts'
 import Navbar from './Components/Navbar/Navbar';
 import PostButton from './Components/PostButton/PostButton';
-
-import Pagination from './Components/Pagination/Pagination';
+import { Pagination } from '@mui/material';
 import Container from '@mui/material/Container'
+import { display } from '@mui/system';
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <Navbar/>
       <PostButton/>
       {renderPosts()} 
-      <Pagination/>
+      <Pagination sx={{color: "#E9D8A6", display: "inline-block"}}  count={10} variant="outlined" size="large" shape="rounded"/>
     </div>
   );
 }
