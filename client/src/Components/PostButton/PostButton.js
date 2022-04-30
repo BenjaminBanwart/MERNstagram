@@ -4,7 +4,6 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 import TextField from "@mui/material/TextField"
-import FileBase from "react-file-base64"
 
 import style from "./styles"
 
@@ -41,9 +40,8 @@ const PostButton = () => {
                      label="Description"
                      defaultValue="Tell us about this memory!"
                 />
-                <FileBase/>       
+                <input type="file"></input>     
                 <Button color="primary" type="submit">Submit</Button>
-             
             </Box>
             </Modal>
         </div>
