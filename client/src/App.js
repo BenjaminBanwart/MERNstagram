@@ -1,8 +1,11 @@
 import './App.css';
 import Post from './Components/Posts/Posts'
 import Navbar from './Components/Navbar/Navbar';
+import PostButton from './Components/PostButton/PostButton';
+
 import Pagination from './Components/Pagination/Pagination';
 import Container from '@mui/material/Container'
+
 
 function App() {
 
@@ -11,7 +14,7 @@ function App() {
     let posts = []
     for(let i = 0; i < 10; i++){
       posts.push(
-        <Post/>
+        <Post key={i}/>
       )
     }
     return(
@@ -23,8 +26,8 @@ function App() {
   
   return (
     <div className="App"> 
-      <h1>App Header</h1>
       <Navbar/>
+      <PostButton/>
       {renderPosts()} 
       <Pagination/>
     </div>
