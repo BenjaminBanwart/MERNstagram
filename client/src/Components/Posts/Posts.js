@@ -9,9 +9,8 @@ import Mountain from '../../assets/images/mountain.jpg'
  
 const Post = () => {
 
-
     return(
-        <Card sx={{ maxwidth: 400, margin: "20px" }}>
+        <Card sx={{ maxwidth: 400, margin: "20px", backgroundColor: "#E9D8A6" }}>
             <CardHeader
             avatar={
                 <Avatar sx={{ bgcolor: 'blue' }}>

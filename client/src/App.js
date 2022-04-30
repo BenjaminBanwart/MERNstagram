@@ -1,6 +1,8 @@
 import './App.css';
 import Post from './Components/Posts/Posts'
 import Navbar from './Components/Navbar/Navbar';
+import Pagination from './Components/Pagination/Pagination';
+import Container from '@mui/material/Container'
 
 function App() {
 
@@ -13,19 +15,18 @@ function App() {
       )
     }
     return(
-      <div style={{display: "flex", justifyContent: "space-around", flexWrap: "wrap"}}>
+      <Container maxWidth="lg" sx={{display: "flex", flexWrap: "wrap"}}>
         {posts}
-      </div>
+      </Container>
     )
   }
   
   return (
     <div className="App"> 
-      <h1>App!</h1>
+      <h1>App Header</h1>
       <Navbar/>
-   
-      {renderPosts()}
-     
+      {renderPosts()} 
+      <Pagination/>
     </div>
   );
 }
