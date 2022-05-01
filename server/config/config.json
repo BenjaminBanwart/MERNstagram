@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "milestone",
+    "password": "app",
+    "database": "milestone_app",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "milestone",
+    "password": "app",
+    "database": "milestone_app_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "milestone",
+    "password": "app",
+    "database": "milestone_app_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
