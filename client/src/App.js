@@ -4,18 +4,13 @@ import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux'; // Dispatch an action
 
 import { getPosts } from './actions/posts';
-import Posts from './components/Posts/Posts';
-import Form from './components/Form/Form';
+
+import Form from './Components/Form/Form';
 import memories from './images/memories.png';
 import useStyles from './styles';
-
 import './App.css';
-import Post from './Components/Posts/Posts'
-import Navbar from './Components/Navbar/Navbar';
-import PostButton from './Components/PostButton/PostButton';
-import { Pagination } from '@mui/material';
-import Container from '@mui/material/Container'
-import { display } from '@mui/system';
+import Post from './Components/Posts/Post/Posts'
+
 
 const App = () => {
     const classes = useStyles();
@@ -50,7 +45,6 @@ const App = () => {
                <Container>
                    <Grid container justifyContent="space-between" alignItems="stretch" spacing="{3}" >
                         <Grid item xs={12} sm={7}>
-                            <Posts />
                             {renderPosts()} 
                         </Grid>
                         <Grid item xs={12} sm={4}>

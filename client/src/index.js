@@ -12,7 +12,7 @@ import reducers from './reducers';
 
 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
 //importing font
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
