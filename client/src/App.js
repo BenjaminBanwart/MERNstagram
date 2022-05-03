@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'; 
 import { useDispatch } from 'react-redux'; // Dispatch an action
 import { getPosts } from './actions/posts';
+
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import { Fragment } from "react";
+
 import Form from './Components/Form/Form';
 import MERNlogo from './assets/images/mernlogo.png';
 import useStyles from './styles';
@@ -23,7 +27,9 @@ const App = () => {
     }
     return(
       <Container maxWidth="lg" sx={{display: "flex", flexWrap: "wrap"}}>
-        {posts}
+        <Link to={'/post'}>
+          {posts}
+        </Link>
       </Container>
     )
   }
@@ -40,6 +46,10 @@ const App = () => {
            </AppBar>
            <Grow in>
                <Container>
+                 <Router>
+                   <Routes>
+                   <Route path='/' element={
+                    <Fragment>
                    <Grid container justifyContent="space-between" alignItems="stretch" spacing="{3}" >
                         <Grid item xs={12} sm={7}>
                             {renderPosts()} 
@@ -48,6 +58,10 @@ const App = () => {
                             <Form />
                         </Grid>
                    </Grid>
+                   </Fragment>
+                   }/>
+                   </Routes>
+                  </Router>
                </Container>
            </Grow>
        </Container>
