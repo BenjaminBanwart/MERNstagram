@@ -3,7 +3,7 @@ import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux'; // Dispatch an action
 import { getPosts } from './actions/posts';
 import Form from './Components/Form/Form';
-import memories from './images/memories.png';
+import MERNlogo from './assets/images/mernlogo.png';
 import useStyles from './styles';
 import './App.css';
 import Post from './Components/Posts/Post/Posts'
@@ -35,8 +35,8 @@ const App = () => {
     return(
        <Container maxidth="lg">
            <AppBar className={classes.appBar} position="static" color="inherit">
-               <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
-               <img className={classes.image} src={memories} alt="memories" height="60" />
+               <img className={classes.image} src={MERNlogo} alt="memories" height="60" />
+               <Typography className={classes.heading} variant="h2" align="center">stagram</Typography>
            </AppBar>
            <Grow in>
                <Container>
@@ -49,7 +49,6 @@ const App = () => {
                         </Grid>
                    </Grid>
                </Container>
-
            </Grow>
        </Container>
     )
