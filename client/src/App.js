@@ -1,3 +1,14 @@
+
+import React, { useEffect } from "react";
+import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'; 
+import { useDispatch } from 'react-redux'; // Dispatch an action
+
+import { getPosts } from './actions/posts';
+import Posts from './components/Posts/Posts';
+import Form from './components/Form/Form';
+import memories from './images/memories.png';
+import useStyles from './styles';
+
 import './App.css';
 import Post from './Components/Posts/Posts'
 import Navbar from './Components/Navbar/Navbar';
@@ -6,10 +17,11 @@ import { Pagination } from '@mui/material';
 import Container from '@mui/material/Container'
 import { display } from '@mui/system';
 
+const App = () => {
+    const classes = useStyles();
+    const dispatch = useDispatch();
 
-function App() {
-
-  //Helper Function to populate page w/ posts
+      //Helper Function to populate page w/ posts
   const renderPosts = () => {
     let posts = []
     for(let i = 0; i < 10; i++){
@@ -23,15 +35,33 @@ function App() {
       </Container>
     )
   }
-  
-  return (
-    <div className="App"> 
-      <Navbar/>
-      <PostButton/>
-      {renderPosts()} 
-      <Pagination sx={{color: "#E9D8A6", display: "inline-block"}}  count={10} variant="outlined" size="large" shape="rounded"/>
-    </div>
-  );
+
+    useEffect(() => {
+        dispatch(getPosts()); // Dispatch an action
+    }, [dispatch]);
+
+    return(
+       <Container maxidth="lg">
+           <AppBar className={classes.appBar} position="static" color="inherit">
+               <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
+               <img className={classes.image} src={memories} alt="memories" height="60" />
+           </AppBar>
+           <Grow in>
+               <Container>
+                   <Grid container justifyContent="space-between" alignItems="stretch" spacing="{3}" >
+                        <Grid item xs={12} sm={7}>
+                            <Posts />
+                            {renderPosts()} 
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <Form />
+                        </Grid>
+                   </Grid>
+               </Container>
+
+           </Grow>
+       </Container>
+    )
 }
 
 export default App;
