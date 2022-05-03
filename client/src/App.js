@@ -1,25 +1,58 @@
-import logo from './logo.svg';
+import React, { useEffect } from "react";
+import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'; 
+import { useDispatch } from 'react-redux'; // Dispatch an action
+import { getPosts } from './actions/posts';
+import Form from './Components/Form/Form';
+import memories from './images/memories.png';
+import useStyles from './styles';
 import './App.css';
+import Post from './Components/Posts/Post/Posts'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+    const classes = useStyles();
+    const dispatch = useDispatch();
+
+      //Helper Function to populate page w/ posts
+  const renderPosts = () => {
+    let posts = []
+    for(let i = 0; i < 10; i++){
+      posts.push(
+        <Post key={i}/>
+      )
+    }
+    return(
+      <Container maxWidth="lg" sx={{display: "flex", flexWrap: "wrap"}}>
+        {posts}
+      </Container>
+    )
+  }
+
+    useEffect(() => {
+        dispatch(getPosts()); // Dispatch an action
+    }, [dispatch]);
+
+    return(
+       <Container maxidth="lg">
+           <AppBar className={classes.appBar} position="static" color="inherit">
+               <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
+               <img className={classes.image} src={memories} alt="memories" height="60" />
+           </AppBar>
+           <Grow in>
+               <Container>
+                   <Grid container justifyContent="space-between" alignItems="stretch" spacing="{3}" >
+                        <Grid item xs={12} sm={7}>
+                            {renderPosts()} 
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <Form />
+                        </Grid>
+                   </Grid>
+               </Container>
+
+           </Grow>
+       </Container>
+    )
 }
 
 export default App;
