@@ -1,26 +1,13 @@
-// Modules and Globals
+const config = require('./config/config.json')
+const express = require('express')
+const app = express()
+const { Sequelize } = require('sequelize')
 
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import dotenv from 'dotenv';
+require('dotenv').config()
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 
-import postRoutes from './routes/posts.js';
-
-const app = express();
-dotenv.config();
-
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
-app.use('/posts', postRoutes);
-
-const PORT = process.env.PORT 
-
-mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(PORT, () => console.log(`Server running on ${PORT}`)))
-    .catch ((error) => console.log(error.message));
-
-  
+app.listen(process.env.PORT, () => {
+    console.log(`Live on port: ${process.env.PORT}`)
+})
