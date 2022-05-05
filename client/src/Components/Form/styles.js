@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import "@fontsource/oleo-script-swash-caps"
 
 export default makeStyles((theme) => ({
   root: {
@@ -21,4 +22,7 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
+  header: {
+    fontFamily: "Oleo Script Swash Caps"
+  }
 }));
