@@ -1,11 +1,12 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
+const config = require('./config/config.json')
+const express = require('express')
+const app = express()
+const { Sequelize } = require('sequelize')
 
-import postRoutes from './routes/posts.js';
+require('dotenv').config()
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-const app = express();
 
 import pg from 'pg';
 //or native libpq bindings
