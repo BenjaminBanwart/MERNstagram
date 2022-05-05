@@ -1,3 +1,5 @@
+const { client } = require('./middleware')
+
 'use strict';
 const {
     Model
