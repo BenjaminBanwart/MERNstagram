@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "milestone",
-    "password": "app",
-    "database": "milestone_app",
+    "username": "ppbnymhk",
+    "password": "vpHxDEpH23IsZnhCK_oaMlyeZCgiirXi",
+    "database": "ppbnymhk",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "milestone",
-    "password": "app",
-    "database": "milestone_app_test",
+    "username": "ppbnymhk",
+    "password": "vpHxDEpH23IsZnhCK_oaMlyeZCgiirXi",
+    "database": "ppbnymhk_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "milestone",
-    "password": "app",
-    "database": "milestone_app_production",
+    "username": "ppbnymhk",
+    "password": "vpHxDEpH23IsZnhCK_oaMlyeZCgiirXi",
+    "database": "ppbnymhk_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
