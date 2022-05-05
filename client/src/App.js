@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'; 
-import { useDispatch } from 'react-redux'; // Dispatch an action
-import { getPosts } from './actions/posts';
 
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import { Fragment } from "react";
@@ -16,7 +14,6 @@ import PostPage from "./Components/PostPage/PostPage";
 
 const App = () => {
     const classes = useStyles();
-    const dispatch = useDispatch();
 
       //Helper Function to populate page w/ posts
   const renderPosts = () => {
@@ -36,10 +33,6 @@ const App = () => {
         </Grid>
     )
   }
-
-    useEffect(() => {
-        dispatch(getPosts()); // Dispatch an action
-    }, [dispatch]);
 
     return(
       <Router>
