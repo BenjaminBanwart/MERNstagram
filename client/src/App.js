@@ -11,6 +11,7 @@ import MERNlogo from './assets/images/mernlogo.png';
 import useStyles from './styles';
 import './App.css';
 import Post from './Components/Posts/Post/Posts'
+import PostPage from "./Components/PostPage/PostPage";
 
 
 const App = () => {
@@ -22,15 +23,17 @@ const App = () => {
     let posts = []
     for(let i = 0; i < 10; i++){
       posts.push(
-        <Post key={i}/>
+        <Grid item xs={4}>
+        <Link to={'/post'} style={{textDecoration: 'none'}}>
+        <Post key={i}/> 
+        </Link>
+        </Grid>
       )
     }
     return(
-      <Container maxWidth="lg" sx={{display: "flex", flexWrap: "wrap"}}>
-        <Link to={'/post'}>
+        <Grid container xs={8}>
           {posts}
-        </Link>
-      </Container>
+        </Grid>
     )
   }
 
@@ -39,32 +42,33 @@ const App = () => {
     }, [dispatch]);
 
     return(
-       <Container maxidth="lg">
+      <Router>
+      <Container maxWidth="lg">
+         <Link to={'/'} style={{textDecoration: 'none'}}>
            <AppBar className={classes.appBar} position="static" color="inherit">
                <img className={classes.image} src={MERNlogo} alt="memories" height="60" />
-               <Typography className={classes.heading} variant="h2" align="center">stagram</Typography>
+               <Typography  className={classes.heading} variant="h2" align="center">stagram</Typography>
            </AppBar>
+           </Link>
            <Grow in>
                <Container>
-                 <Router>
                    <Routes>
                    <Route path='/' element={
                     <Fragment>
-                   <Grid container justifyContent="space-between" alignItems="stretch" spacing="{3}" >
-                        <Grid item xs={12} sm={7}>
-                            {renderPosts()} 
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
+                   <Grid container justifyContent="space-between" alignItems="left" spacing={1}>              
+                            {renderPosts()}          
+                        <Grid item xs={4}>
                             <Form />
                         </Grid>
                    </Grid>
                    </Fragment>
                    }/>
-                   </Routes>
-                  </Router>
+                   <Route path="/post" element={<PostPage/>} />
+                   </Routes>               
                </Container>
            </Grow>
        </Container>
+       </Router>
     )
 }
 

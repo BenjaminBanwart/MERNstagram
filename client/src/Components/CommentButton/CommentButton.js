@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField"
 
 import style from "./styles"
 
-const PostButton = () => {
+const CommentButton = () => {
     //From MUI Modal Docs https://mui.com/material-ui/react-modal/
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
@@ -15,7 +15,7 @@ const PostButton = () => {
 
     return(
         <div>
-            <Button  size="large" sx={{ color: "#94D2BD"}} onClick={handleOpen}>Post a Memory!</Button>
+            <Button  size="large" sx={{ color: "#94D2BD"}} onClick={handleOpen}>Leave a Comment!</Button>
             <Modal 
                 open={open}
                 onClose={handleClose}  
@@ -25,22 +25,9 @@ const PostButton = () => {
                     sx={{ minWidth: '70%', margin: "15px"}}
                     required
                     id="outlined-required"
-                    label="Username"
-                    defaultValue="What's your name?"
-                />
-                <TextField 
-                    sx={{ minWidth: '70%', margin: "15px"}}
-                    required
-                    id="outlined-required"
-                    label="Title"
-                    defaultValue="Enter a Title for your Memory!"
-                />
-                <TextField 
-                     sx={{ minWidth: '70%', margin: "15px"}}
-                     label="Description"
-                     defaultValue="Tell us about this memory!"
-                />
-                <input type="file"></input>     
+                    label="Comment"
+                    defaultValue="Comment Here!"
+                /> 
                 <Button color="primary" type="submit">Submit</Button>
             </Box>
             </Modal>
@@ -48,4 +35,4 @@ const PostButton = () => {
     )
 }
 
-export default PostButton
+export default CommentButton
