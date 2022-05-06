@@ -1,8 +1,4 @@
 const post = require('express').Router();
-// const db = require('../models');
-// const { Post } = db;
-const { Op, where } = require('sequelize');
-const { Post } = require('../models/post')
 const {client} = require('../models/middleware')
 
 client.connect();
@@ -34,55 +30,56 @@ post.get('/:id', async (req, res) => {
 
 // create a post
 post.post('/', async (req, res) => {
-    const post_id = req.params.id;
-    const title = req.params.title;
-    const creator = req.params.creator
-    const date = req.params.date
-    const description = req.params.description
-    const image = req.params.image
-    let sql = 'INSERT INTO post(post_id, title, creator, date, description, image) VALUES($1, $2, $3, $4, $5, $6)'
-    client.query(sql, [post_id, title, creator, date, description, image], (err, result) => {
+    const title = req.body.title
+    const creator = req.body.creator
+    const time = new Date().toISOString();
+    const date = time
+    const description = req.body.description
+    const image = req.body.image
+    let sql = 'INSERT INTO post(post_id, title, creator, date, description, image) VALUES(DEFAULT, $1, $2, $3, $4, $5)'
+    client.query(sql, [title, creator, date, description, image], (err, result) => {
         if (err) {
             return console.error(err.message);
         }
-        // result.status(200).json({
-        //     message: 'Successfully created post'
-        // })
-        res.status(200).json(result.rows)
+        result.status(200).json({
+            message: 'Successfully created post'
+        })
     })
     client.end;
 })
 
 // edit a post
 post.put('/:id', async (req, res) => {
-    try {
-        const edittedPost = await Post.update(req.body, {
-            where: {
-                post_id: req.params.id
-            }
-        })
+    const id = req.params.id
+    const title = req.body.title
+    const creator = req.body.creator
+    const description = req.body.description
+    const image = req.body.image
+    let sql = "UPDATE post SET title = $1, creator = $2, description = $3, image = $4 WHERE post_id = $5"
+    client.query(sql, [title, creator, description, image, id], (err, result) => {
+        if (err) {
+            return console.error(err.message);
+        }
         res.status(200).json({
-            message: `Successfully updated ${edittedPost} post`
+            message: 'Successfully updated post'
         })
-    } catch (err) {
-        res.status(500).json(err)
-    }
+    })
+    client.end;
 })
 
 // delete a post
 post.delete('/:id', async (req, res) => {
-    try {
-        const deletedPost = await Post.destroy({
-            where: {
-                post_id: req.params.id
-            }
-        })
+    id = req.params.id
+    let sql = "DELETE FROM post WHERE post_id = $1"
+    client.query(sql, [id], (err, result) => {
+        if (err) {
+            return console.error(err.message);
+        }
         res.status(200).json({
-            message: `Successfully deleted ${deletedPost} post`
+            message: 'Successfully deleted post'
         })
-    } catch (err) {
-        res.status(500).json(err)
-    }
+    })
+    client.end;
 })
 
 module.exports = post
