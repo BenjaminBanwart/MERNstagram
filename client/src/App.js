@@ -65,7 +65,7 @@ const App = () => {
                    <Grid container justifyContent="space-between" alignItems="left" spacing={1}>              
                             {renderPosts()}          
                         <Grid item xs={4}>
-                            <Form />
+                            <Form/>
                         </Grid>
                    </Grid>
                    </Fragment>
