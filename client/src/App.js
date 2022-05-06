@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'; 
 
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
@@ -14,6 +14,20 @@ import PostPage from "./Components/PostPage/PostPage";
 
 const App = () => {
     const classes = useStyles();
+    let [data, setData] = useState([])
+
+    const API_URL = "http://localhost:4000/posts"
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const response = await fetch(API_URL)
+        const resData = await response.json()
+        console.log(resData)
+        setData(resData)
+      }
+      fetchData()
+    },[])
+
 
       //Helper Function to populate page w/ posts
   const renderPosts = () => {
