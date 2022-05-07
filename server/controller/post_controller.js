@@ -41,7 +41,7 @@ post.post('/', async (req, res) => {
         if (err) {
             return console.error(err.message);
         }
-        result.status(200).json({
+        res.status(200).json({
             message: 'Successfully created post'
         })
     })
