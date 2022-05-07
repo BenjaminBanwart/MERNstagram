@@ -19,7 +19,7 @@ const Form = () => {
         console.log(postData)
 
         try {
-            const response = await axios({
+            await axios({
                 method: "post",
                 url: "https://mernstagram-api.herokuapp.com/posts" ,
                 data: postData            
