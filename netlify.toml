@@ -1,8 +1,8 @@
 [build]
   command = "npm run build"
-  publish="path-to-react-app/build"
+  publish = "client/build"
   base = "client/"
-  
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
