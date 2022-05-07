@@ -12,6 +12,7 @@ import Post from './Components/Posts/Post/Posts'
 import PostPage from "./Components/PostPage/PostPage";
 
 
+
 const App = () => {
     const classes = useStyles();
     let [data, setData] = useState([])
@@ -28,7 +29,7 @@ const App = () => {
       fetchData()
     },[])
 
-
+/*
       //Helper Function to populate page w/ posts
   const renderPosts = () => {
     let posts = []
@@ -36,7 +37,7 @@ const App = () => {
       posts.push(
         <Grid item xs={4}>
         <Link to={'/post'} style={{textDecoration: 'none'}}>
-        <Post key={i}/> 
+        <Post key={i} data={data}/> 
         </Link>
         </Grid>
       )
@@ -47,6 +48,19 @@ const App = () => {
         </Grid>
     )
   }
+*/
+
+//Rendering & populating Cards w/ backend data
+const renderPosts = data.map((data, i) => {
+  return(
+    <Grid item xs={4}>
+      <Link to={'/post'} style={{textDecoration: 'none'}}>
+       <Post key={i} data={data}/> 
+      </Link>
+    </Grid>
+  )
+})
+
 
     return(
       <Router>
@@ -62,8 +76,12 @@ const App = () => {
                    <Routes>
                    <Route path='/' element={
                     <Fragment>
-                   <Grid container justifyContent="space-between" alignItems="left" spacing={1}>              
-                            {renderPosts()}          
+                   <Grid container justifyContent="space-between" spacing={1}>              
+                      <Grid container xs={8}>
+                        <Grid container  xs={12}>
+                          {renderPosts}
+                        </Grid>
+                      </Grid>
                         <Grid item xs={4}>
                             <Form/>
                         </Grid>
