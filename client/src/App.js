@@ -17,7 +17,7 @@ const App = () => {
     const classes = useStyles();
     let [data, setData] = useState([])
 
-    const API_URL = "http://localhost:4000/posts"
+    const API_URL = "http://localhost:1234/posts"
 
     useEffect(() => {
       const fetchData = async () => {
@@ -53,9 +53,9 @@ const App = () => {
 //Rendering & populating Cards w/ backend data
 const renderPosts = data.map((data, i) => {
   return(
-    <Grid item xs={4}>
+    <Grid key={i} item xs={4}>
       <Link to={'/post'} style={{textDecoration: 'none'}}>
-       <Post key={i} data={data}/> 
+       <Post data={data}/> 
       </Link>
     </Grid>
   )
