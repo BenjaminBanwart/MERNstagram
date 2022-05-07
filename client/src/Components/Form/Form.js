@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
-// import axios from 'axios'
+import axios from 'axios'
 
 import useStyles from './styles';
 
@@ -18,15 +18,15 @@ const Form = () => {
         setPostData(e)
         console.log(postData)
 
-        // try {
-        //     const response = await axios({
-        //         method: "post",
-        //         url: "http://localhost:4000/posts" ,
-        //         data: postData            
-        //     })
-        // } catch (err){
-        //     console.log(err)
-        // }
+        try {
+            const response = await axios({
+                method: "post",
+                url: "https://mernstagram-api.herokuapp.com/posts" ,
+                data: postData            
+            })
+        } catch (err){
+            console.log(err)
+        }
     }
 
     const clear = () => {
