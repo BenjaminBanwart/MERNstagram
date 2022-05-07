@@ -7,18 +7,19 @@ import Typography from '@mui/material/Typography'
 
 import Mountain from '../../../assets/images/mountain.jpg'
  
-const Post = () => {
+const Post = (props) => {
+
 
     return(
         <Card sx={{ maxWidth: 250, margin: "20px", backgroundColor: "#E9D8A6" }}>
             <CardHeader
             avatar={
                 <Avatar sx={{ bgcolor: 'blue' }}>
-                    RB
+                    {props.data.creator}
                 </Avatar>
             }
-            title="{Post Description}"
-            subheader="{Date posted}"
+            title={props.data.title}
+            subheader={props.data.date}
             />
             <CardMedia 
                 sx = {{borderRadius: "10px" }}
@@ -29,10 +30,11 @@ const Post = () => {
             />
             <CardContent>
                 <Typography sx={{ fontSize: 14 }}>
-                    <h4>Card Description Content Here!</h4>
+                    {props.data.description}
                 </Typography>
             </CardContent>
         </Card>
+        
     )
 }
 
