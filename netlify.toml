@@ -1,4 +1,6 @@
 [build]
+  command = "npm run build"
+  publish="path-to-react-app/build"
   base = "client/"
   
 [[redirects]]
