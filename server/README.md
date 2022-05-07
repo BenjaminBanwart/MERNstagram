@@ -36,22 +36,17 @@ GET /posts/:id:
 
 ![Second Postman Picture](./images/Postman_2.png)
 
-POST /:
+POST /posts:
 
-Image Here
+![Third Postman Picture](./images/Postman_3.png)
 
-PUT /:id:
+PUT /posts/:id:
 
-Image Here
+![Fourth Postman Picture](./images/Postman_4.png)
 
 DELETE /posts/:id:
 
 ![Fifth Postman Picture](./images/Postman_5.png)
 
-Current Bugs:
 
-POST /:
-     
-     - Error message: 'null value in column "creator" violates not-null constraint'
-     - Object will be created, but with no success value returned
 
