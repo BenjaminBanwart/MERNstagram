@@ -5,8 +5,6 @@ import  CardMedia  from '@mui/material/CardMedia'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 
-import Mountain from '../../../assets/images/mountain.jpg'
-
 const Post = (props) => {
 
 
@@ -25,7 +23,7 @@ const Post = (props) => {
                 sx = {{borderRadius: "10px" }}
                 component="img"
                 height="100"
-                image={Mountain}
+                image={props.data.image}
                 alt='Posted Image'
             />
             <CardContent>
