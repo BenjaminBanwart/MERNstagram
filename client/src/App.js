@@ -3,22 +3,27 @@ import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import { Fragment } from "react";
+import axios from 'axios'
 
 import Form from './Components/Form/Form';
 import MERNlogo from './assets/images/mernlogo.png';
 import useStyles from './styles';
 import './App.css';
-import Post from './Components/Posts/Post/Posts'
 import PostPage from "./Components/PostPage/PostPage";
+import PostContainer from "./Components/PostContainer/PostContainer"
 
 
 
 const App = () => {
     const classes = useStyles();
+    let [postData, setPostData] = useState({ creator: '', title: '', description: '', tags: '', selectedFile: '' })
     let [data, setData] = useState([])
+    
+    
 
     const API_URL = "https://mernstagram-api.herokuapp.com/posts"
 
+    
     useEffect(() => {
       const fetchData = async () => {
         const response = await fetch(API_URL)
@@ -29,37 +34,34 @@ const App = () => {
       fetchData()
     },[])
 
-/*
-      //Helper Function to populate page w/ posts
-  const renderPosts = () => {
-    let posts = []
-    for(let i = 0; i < 10; i++){
-      posts.push(
-        <Grid item xs={4}>
-        <Link to={'/post'} style={{textDecoration: 'none'}}>
-        <Post key={i} data={data}/> 
-        </Link>
-        </Grid>
-      )
-    }
-    return(
-        <Grid container xs={8}>
-          {posts}
-        </Grid>
-    )
-  }
-*/
 
-//Rendering & populating Cards w/ backend data
-const renderPosts = data.map((data, i) => {
-  return(
-    <Grid key={i} item xs={4}>
-      <Link to={'/post'} style={{textDecoration: 'none'}}>
-       <Post data={data}/> 
-      </Link>
-    </Grid>
-  )
-})
+        // Found from https://surajsharma.net/blog/axios-post-form-data
+        const handleSubmit = async (e, submitData) => {
+          e.preventDefault(); // Event prevent default to prevent browser refresh
+          setPostData(submitData)
+          console.log(postData)
+  
+          try {
+              await axios({
+                  method: "post",
+                  url: "https://mernstagram-api.herokuapp.com/posts" ,
+                  data: submitData          
+              })
+              .then(response => {
+                  console.log('saved')
+                  const fetchData = async () => {
+                    const response = await fetch(API_URL)
+                    const resData = await response.json()
+                    console.log(resData)
+                    setData(resData)
+                  }
+                  fetchData()
+              }) 
+          } catch (err){
+              console.log(err)
+          }
+      }
+
 
 
     return(
@@ -67,7 +69,7 @@ const renderPosts = data.map((data, i) => {
       <Container maxWidth="lg">
          <Link to={'/'} style={{textDecoration: 'none'}}>
            <AppBar className={classes.appBar} position="static" color="inherit">
-               <img className={classes.image} src={MERNlogo} alt="memories" height="60" />
+               <img className={classes.image} src={MERNlogo} alt="Mernstagram" height="60" />
                <Typography  className={classes.heading} variant="h2" align="center">stagram</Typography>
            </AppBar>
            </Link>
@@ -78,17 +80,15 @@ const renderPosts = data.map((data, i) => {
                     <Fragment>
                    <Grid container justifyContent="space-between" spacing={1}>              
                       <Grid container xs={8}>
-                        <Grid container  xs={12}>
-                          {renderPosts}
-                        </Grid>
+                        <PostContainer data={data}/>
                       </Grid>
                         <Grid item xs={4}>
-                            <Form/>
+                            <Form handleSubmit={handleSubmit}/>
                         </Grid>
                    </Grid>
                    </Fragment>
                    }/>
-                   <Route path="/post" element={<PostPage/>} />
+                   <Route path='/post/:id' element={<PostPage/>} />
                    </Routes>               
                </Container>
            </Grow>
