@@ -20,11 +20,11 @@ The MERNstagram API has 5 routes currently as diagramed below in our routes tabl
      
      | Method |       Path                   |                    Purpose                           |        Status       |
      | ------ | ---------------------------- | ---------------------------------------------------- | ------------------- |
-     | GET    |     /                        |	API Entry Point / Homepage                          |         DONE        |
-     | GET    |     /posts/:id               |	Index of specific id                                |         DONE        |
-     | POST   |     /posts                   |	Create a new post                                   |         DONE        |   
-     | PUT    |     /:id                     |	Update a post                                       |         DONE        |
-     | DELETE |     /posts/:id               |	Delete a post                                       |         DONE        |
+     | GET    |     /                        |	API Entry Point / Homepage                        |         DONE        |
+     | GET    |     /posts/:id               |	Index of specific id                              |         DONE        |
+     | POST   |     /posts                   |	Create a new post                                 |         DONE        |   
+     | PUT    |     /:id                     |	Update a post                                     |         DONE        |
+     | DELETE |     /posts/:id               |	Delete a post                                     |         DONE        |
 
 Postman Examples:
 
