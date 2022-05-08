@@ -33,7 +33,7 @@ const PostPage = () => {
                 <CardMedia 
                     component="img"
                     height=""
-                    image={MERNlogo}
+                    image={postData.image}
                     alt='user post'
                 />
                 <CardContent>

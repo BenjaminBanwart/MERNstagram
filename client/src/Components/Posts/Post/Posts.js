@@ -26,7 +26,7 @@ const Post = (props) => {
                 sx = {{borderRadius: "10px" }}
                 component="img"
                 height="100"
-                image={Mountain}
+                image={props.data.image}
                 alt='Posted Image'
             />
             <CardContent>

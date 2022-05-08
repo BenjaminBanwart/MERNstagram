@@ -16,7 +16,7 @@ import PostContainer from "./Components/PostContainer/PostContainer"
 
 const App = () => {
     const classes = useStyles();
-    let [postData, setPostData] = useState({ creator: '', title: '', description: '', tags: '', selectedFile: '' })
+
     let [data, setData] = useState([])
     
     
@@ -38,8 +38,7 @@ const App = () => {
         // Found from https://surajsharma.net/blog/axios-post-form-data
         const handleSubmit = async (e, submitData) => {
           e.preventDefault(); // Event prevent default to prevent browser refresh
-          setPostData(submitData)
-          console.log(postData)
+          console.log(submitData)
   
           try {
               await axios({
