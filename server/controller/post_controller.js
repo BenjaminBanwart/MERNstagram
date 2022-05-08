@@ -60,9 +60,7 @@ post.put('/:id', async (req, res) => {
         if (err) {
             return console.error(err.message);
         }
-        res.status(200).json({
-            message: 'Successfully updated post'
-        })
+        res.status(200).redirect(`/post/${req.params.id}`)
     })
     client.end;
 })
@@ -75,9 +73,7 @@ post.delete('/:id', async (req, res) => {
         if (err) {
             return console.error(err.message);
         }
-        res.status(200).json({
-            message: 'Successfully deleted post'
-        })
+        res.status(200).redirect(`/`)
     })
     client.end;
 })

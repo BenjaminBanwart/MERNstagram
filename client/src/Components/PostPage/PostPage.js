@@ -1,8 +1,8 @@
 import Container from '@mui/material/Container'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
-import { CardContent, CardMedia, Typography } from '@mui/material'
-import CommentButton from '../CommentButton/CommentButton'
+import { CardContent, CardMedia, Typography, Button } from '@mui/material'
+import UpdateButton from '../UpdateButton/UpdateButton'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -11,7 +11,8 @@ const PostPage = () => {
     const [postData, setPostData] = useState([])
 
     useEffect(() => {
-        const API_URL = `https://mernstagram-api.herokuapp.com/posts/${id}`
+        //const API_URL = `https://mernstagram-api.herokuapp.com/posts/${id}`
+        const API_URL = `http://localhost:4000/posts/${id}`
         const fetchData = async () => {
             const response = await fetch(API_URL)
             const resData = await response.json()
@@ -36,13 +37,16 @@ const PostPage = () => {
                     alt='user post'
                 />
                 <CardContent>
-                    <Typography variant='h4' align='center'>Post Description</Typography>
+                    <Typography variant='h6' align='center'>Posted by {postData.creator}</Typography>
                     <Typography variant='body2' align='center'>
                     {postData.description}
                     </Typography>
                 </CardContent>
             </Card>
-            <CommentButton/>
+            <UpdateButton postData={postData}/>
+            <form action={`/posts/${postData.post_id}?_method=DELETE`} method="POST">
+                <Button color="error" variant='outlined' type="submit" value="DELETE" >Delete</Button>
+            </form>
         </Container> 
     )
 }

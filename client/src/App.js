@@ -16,14 +16,10 @@ import PostContainer from "./Components/PostContainer/PostContainer"
 
 const App = () => {
     const classes = useStyles();
-
     let [data, setData] = useState([])
     
-    
-
-    const API_URL = "https://mernstagram-api.herokuapp.com/posts"
-
-    
+    //const API_URL = "https://mernstagram-api.herokuapp.com/posts"
+    const API_URL = 'http://localhost:4000/posts'
     useEffect(() => {
       const fetchData = async () => {
         const response = await fetch(API_URL)
@@ -33,8 +29,6 @@ const App = () => {
       }
       fetchData()
     },[])
-
-
         // Found from https://surajsharma.net/blog/axios-post-form-data
         const handleSubmit = async (e, submitData) => {
           e.preventDefault(); // Event prevent default to prevent browser refresh
@@ -60,8 +54,6 @@ const App = () => {
               console.log(err)
           }
       }
-
-
 
     return(
       <Router>
