@@ -11,8 +11,7 @@ const PostPage = () => {
     const [postData, setPostData] = useState([])
 
     useEffect(() => {
-        //const API_URL = `https://mernstagram-api.herokuapp.com/posts/${id}`
-        const API_URL = `http://localhost:4000/posts/${id}`
+        const API_URL = `https://mernstagram-api.herokuapp.com/posts/${id}`
         const fetchData = async () => {
             const response = await fetch(API_URL)
             const resData = await response.json()
