@@ -5,9 +5,6 @@ import  CardMedia  from '@mui/material/CardMedia'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 
-
-import Mountain from '../../../assets/images/mountain.jpg'
-
 const Post = (props) => {
 
 
