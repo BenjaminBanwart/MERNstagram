@@ -5,6 +5,7 @@ import { CardContent, CardMedia, Typography, Button } from '@mui/material'
 import UpdateButton from '../UpdateButton/UpdateButton'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const PostPage = () => {
     const { id } = useParams()
@@ -21,6 +22,9 @@ const PostPage = () => {
         fetchData()
     }, [ id ])
 
+    const handleDelete = () => {
+        axios.delete(`https://mernstagram-api.herokuapp.com/posts/${postData.post_id}?_method=DELETE`)
+    }
 
     return(
         <Container maxWidth="md">
@@ -43,7 +47,7 @@ const PostPage = () => {
                 </CardContent>
             </Card>
             <UpdateButton postData={postData}/>
-            <form action={`/${postData.post_id}?_method=DELETE`} method="POST">
+            <form action={handleDelete} method="POST">
                 <Button color="error" variant='outlined' type="submit" value="DELETE" >Delete</Button>
             </form>
         </Container> 
