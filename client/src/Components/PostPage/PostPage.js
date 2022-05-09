@@ -43,7 +43,7 @@ const PostPage = () => {
                 </CardContent>
             </Card>
             <UpdateButton postData={postData}/>
-            <form action={`/posts/${postData.post_id}?_method=DELETE`} method="POST">
+            <form action={`/${postData.post_id}?_method=DELETE`} method="POST">
                 <Button color="error" variant='outlined' type="submit" value="DELETE" >Delete</Button>
             </form>
         </Container> 

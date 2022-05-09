@@ -17,7 +17,7 @@ const CommentButton = (props) => {
         <div>
         <Button  size="large" sx={{ color: "#94D2BD"}} onClick={handleOpen}>Something Wrong? Update Here!</Button>
             <Modal  open={open} onClose={handleClose}> 
-            <form action={`/posts/${props.postData.post_id}?_method=PUT`} method="POST">
+            <form action={`/${props.postData.post_id}?_method=PUT`} method="POST">
             <Box sx={style}>
                 <TextField 
                     sx={{ minWidth: '70%', margin: "15px"}}
