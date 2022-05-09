@@ -5,7 +5,7 @@ import { CardContent, CardMedia, Typography, Button } from '@mui/material'
 import UpdateButton from '../UpdateButton/UpdateButton'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+
 
 const PostPage = () => {
     const { id } = useParams()
