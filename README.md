@@ -14,6 +14,8 @@ Technologies Used:
 
 [Node.js](https://nodejs.org) - Javascript runtime built on Chrome's V8 Javascript engine
 
+[Material UI](https://mui.com/) - A React Component styling library
+
 This app is deployed in three locations:
 
 [Front-end (client side)](https://mernstagram.netlify.app/) - Hosted on [Netlify](https://www.netlify.com/)
