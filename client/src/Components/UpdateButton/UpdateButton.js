@@ -12,12 +12,13 @@ const CommentButton = (props) => {
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
+    const API_CALL = 'https://mernstagram-api.herokuapp.com/posts/'
 
     return(
         <div>
         <Button  size="large" sx={{ color: "#94D2BD"}} onClick={handleOpen}>Something Wrong? Update Here!</Button>
             <Modal  open={open} onClose={handleClose}> 
-            <form action={`https://mernstagram-api.herokuapp.com/posts/${props.postData.post_id}?_method=PUT`} method="POST">
+            <form action={`${API_CALL}${props.postData.post_id}?_method=PUT`} method="POST">
             <Box sx={style}>
                 <TextField 
                     sx={{ minWidth: '70%', margin: "15px"}}
