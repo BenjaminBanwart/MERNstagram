@@ -22,9 +22,6 @@ const PostPage = () => {
         fetchData()
     }, [ id ])
 
-    const handleDelete = () => {
-        axios.delete(`https://mernstagram-api.herokuapp.com/posts/${postData.post_id}?_method=DELETE`)
-    }
 
     return(
         <Container maxWidth="md">
@@ -47,7 +44,7 @@ const PostPage = () => {
                 </CardContent>
             </Card>
             <UpdateButton postData={postData}/>
-            <form action={handleDelete} method="POST">
+            <form action={`https://mernstagram-api.herokuapp.com/posts/${postData.post_id}?_method=DELETE`} method="POST">
                 <Button color="error" variant='outlined' type="submit" value="DELETE" >Delete</Button>
             </form>
         </Container> 
