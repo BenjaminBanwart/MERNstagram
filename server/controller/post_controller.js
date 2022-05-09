@@ -60,7 +60,7 @@ post.put('/:id', async (req, res) => {
         if (err) {
             return console.error(err.message);
         }
-         res.status(200).redirect(`https://mernstagram.netlify.app/posts/${req.params.id}`)
+         res.status(200).redirect(`https://mernstagram.netlify.app/post/${req.params.id}`)
     })
     client.end;
 })
