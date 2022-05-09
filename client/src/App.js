@@ -18,7 +18,9 @@ const App = () => {
     const classes = useStyles();
     let [data, setData] = useState([])
     
+    
     const API_URL = "https://mernstagram-api.herokuapp.com/posts"
+    
     useEffect(() => {
       const fetchData = async () => {
         const response = await fetch(API_URL)

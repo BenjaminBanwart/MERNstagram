@@ -60,7 +60,7 @@ post.put('/:id', async (req, res) => {
         if (err) {
             return console.error(err.message);
         }
-        res.status(200).redirect(`/post/${req.params.id}`)
+         res.status(200).redirect(`https://mernstagram.netlify.app/posts/${req.params.id}`)
     })
     client.end;
 })
@@ -73,7 +73,7 @@ post.delete('/:id', async (req, res) => {
         if (err) {
             return console.error(err.message);
         }
-        res.status(200).redirect(`/`)
+        res.status(200).redirect(`https://mernstagram.netlify.app/`)
     })
     client.end;
 })
