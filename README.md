@@ -1,5 +1,7 @@
 ### MERNstagram ###
 
+Click here to use the app! https://mernstagram.netlify.app/
+
 A full-stack social media clone application.
 
 ![Mernstagram App Picture](./client/src/images/App_Image.png)
