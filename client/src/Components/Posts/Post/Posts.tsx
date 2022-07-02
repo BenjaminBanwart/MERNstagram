@@ -5,7 +5,20 @@ import  CardMedia  from '@mui/material/CardMedia'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 
-const Post = (props) => {
+export interface PostsInfo {
+    creator: string
+    title: string
+    date: any
+    image: string
+    description: string
+    post_id: number
+}
+
+interface PostsProps {
+    data: PostsInfo
+}
+
+const Post = (props:PostsProps) => {
 
 
     return(

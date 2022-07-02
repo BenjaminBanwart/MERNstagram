@@ -4,10 +4,15 @@ import Button from "@mui/material/Button"
 // import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 import TextField from "@mui/material/TextField"
-
 import style from "./styles"
+import {PostsInfo} from "../Posts/Post/Posts"
 
-const CommentButton = (props) => {
+interface UpdateButtonProps {
+    postData: PostsInfo
+}
+
+
+const CommentButton = (props:UpdateButtonProps) => {
     //From MUI Modal Docs https://mui.com/material-ui/react-modal/
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)

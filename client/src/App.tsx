@@ -16,7 +16,7 @@ import PostContainer from "./Components/PostContainer/PostContainer"
 
 const App = () => {
     const classes = useStyles();
-    let [data, setData] = useState([])
+    let [data, setData]:any = useState([])
     
     
     const API_URL = "https://mernstagram-api.herokuapp.com/posts"
@@ -31,7 +31,7 @@ const App = () => {
       fetchData()
     },[])
         // Found from https://surajsharma.net/blog/axios-post-form-data
-        const handleSubmit = async (e, submitData) => {
+        const handleSubmit = async (e:Event, submitData:SubmitEvent) => {
           e.preventDefault(); // Event prevent default to prevent browser refresh
           console.log(submitData)
   

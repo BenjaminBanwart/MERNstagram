@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { FormEvent, FormEventHandler, useState } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 
 import useStyles from './styles';
 
 
 
-
-const Form = ({handleSubmit}) => {
+const Form = ({handleSubmit}: {handleSubmit: any}) => {
     let [postData, setPostData] = useState({ creator: '', title: '', description: '', image: '' }) 
-    const classes = useStyles();
+    const classes: any = useStyles();
 
     const clear = () => {
         setPostData({ creator: '', title: '', description: '', image: '' })

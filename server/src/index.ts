@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express'
 const methodOverride = require('method-override')
 const cors = require('cors')
 const app = express()
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.get('/', (req: express.Request, res: express.Response) => {
     res.status(200).json({
         message: 'Welcome to the MERNstagram API'
     })

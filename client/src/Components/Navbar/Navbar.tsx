@@ -2,6 +2,7 @@ import  Toolbar  from "@mui/material/Toolbar"
 import  AppBar  from "@mui/material/AppBar"
 import Container from "@mui/material/Container"
 import  Typography  from "@mui/material/Typography"
+import { JsxElement } from "typescript"
 
 const Navbar = () => {
     return(

@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 
 const PostPage = () => {
     const { id } = useParams()
-    const [postData, setPostData] = useState([])
+    const [postData, setPostData]:any = useState([])
 
     const API_CALL = 'https://mernstagram-api.herokuapp.com/posts/'
     
