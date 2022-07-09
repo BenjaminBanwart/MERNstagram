@@ -10,8 +10,8 @@ workflows:
       - eb/deploy:
           app-dir: ~/project/server
           context: aws-creds
-          application-name: Project
-          environment-name: project-env
+          application-name: MERNstagram
+          environment-name: Mernstagram-env
           filters:
             branches:
               only:
