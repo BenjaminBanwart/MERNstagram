@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+  node: circleci/node@4.7.0
+workflows:
+  elastic-beanstalk-workflow:
+    jobs:
+      - node/test:
+          app-dir: ~/project/server
+      - eb/deploy:
+          app-dir: ~/project/server
+          context: aws-creds
+          application-name: MERNstagram
+          environment-name: Mernstagram-env
+          filters:
+            branches:
+              only:
+                - aws-deployment-benj
+          label: version-<<pipeline.number>>
+          requires:
+            - node/test
